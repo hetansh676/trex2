@@ -50,7 +50,7 @@ function setup() {
   restart.addImage(restartImage)
   restart.scale=0.5
   trex.debug=false
-  trex.setCollider("rectangle",0,0,200,100)
+  trex.setCollider("circle",0,0,40)
   ground = createSprite(200,180,400,20);
   ground.addImage("ground",groundImage);
   ground.x = ground.width /2;
@@ -69,7 +69,7 @@ function setup() {
 }
 
 function draw() {
-  background(0,255,0);
+  background(0,0,0);
   //displaying score
   text("Score: "+ score, 400,30);
   
@@ -89,7 +89,7 @@ function draw() {
      checkpoint.play() 
     }
     //jump when the space key is pressed
-    if(keyDown("space")&& trex.y >= 100) {
+    if(keyDown("space")&& trex.y >= 150) {
       jump.play()
       
         trex.velocityY = -13;
@@ -105,7 +105,7 @@ function draw() {
     spawnObstacles();
     
     if(obstaclesGroup.isTouching(trex)){
-     gameState = END;
+        gameState = END;
      
       Die.play()
     }
